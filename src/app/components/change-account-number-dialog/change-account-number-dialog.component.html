@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Change account number</h1>
+<mat-dialog-content>
+  <p><strong>Current account:</strong></p>
+  <p>{{data.account.accountNumber}}</p>
+  <p><strong>Balance:</strong></p>
+  <p>
+    <amount-viewer [currency]="data.account.accountCurrency"
+    [amount]="data.account.accountBalance"></amount-viewer>
+  </p>
+  <hr />
+  <p><strong>New account number:</strong></p>
+  <mat-form-field>
+    <mat-select   [(ngModel)]="selectedAccount">
+      @for (account of accountInfo; track account.accountNumber) {
+        <mat-option [value]="account">
+          {{account.accountNumber}} ({{account.accountCurrency}})</mat-option>
+      }
+    </mat-select> 
+  </mat-form-field>
+  <p><strong>Balance:</strong></p>
+  <p>
+    <amount-viewer [currency]="selectedAccount?.accountCurrency"
+    [amount]="selectedAccount?.accountBalance"></amount-viewer>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onDetermineClick()">Determine</button>
+</mat-dialog-actions>
