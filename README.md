@@ -20,7 +20,7 @@ app
   * interfaces
   * services
 
-`* Files outside these folders are out of the box created by cli's ng create command
+`* Files outside these folders are out of the box created by Angular CLI ng new command
 
 ## Main UI Components
 ![image](https://github.com/user-attachments/assets/180206a4-e4b2-424b-a2da-d4d01f287f18)
