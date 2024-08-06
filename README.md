@@ -22,7 +22,11 @@ app
 
 `* Files outside these folders are out of the box created by Angular CLI ng new command
 
-## Main UI Components
+## Main Layout Components
 ![image](https://github.com/user-attachments/assets/180206a4-e4b2-424b-a2da-d4d01f287f18)
 
 ![image](https://github.com/user-attachments/assets/a538fd3a-a37b-4271-8fd0-c8f8563898d2)
+
+## Viewer Components
+1. amount-viewer
+2. date-viewer
