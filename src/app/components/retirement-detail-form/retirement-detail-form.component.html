@@ -23,12 +23,17 @@
   </div>
   <div class="row">
     <div class="column">
-      Charge Date : {{retirementInfo()?.account?.chargeDate}} of the month (Next payment date: 2024-09-01)
+      Charge Date : {{retirementInfo()?.account?.chargeDate}} of the month (Next payment date: <date-viewer [date]="getNextChargeDate(retirementInfo()?.account?.chargeDate)"></date-viewer>)
     </div>
     <div class="column">
       Current market value :
       <amount-viewer [currency]="retirementInfo()?.account?.accountCurrency"
         [amount]="retirementInfo()?.account?.marketValue"></amount-viewer>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      Status : {{retirementInfo()?.account?.status}}
     </div>
   </div>
 </form>

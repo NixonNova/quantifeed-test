@@ -6,6 +6,5 @@ export interface AccountDto {
   chargeDate: number;
   chargeAmount: number;
   marketValue:number;
-  status:number;
-
+  status:string;
 }

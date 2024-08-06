@@ -16,7 +16,7 @@ export class AccountDataService {
       chargeDate: 1,
       chargeAmount: 25000,
       marketValue: 900000,
-      status: 1
+      status: "Monthly charge"
     },{
       userId: "nixonnova@outlook.com",
       accountNumber: "555-666-777",
@@ -25,7 +25,7 @@ export class AccountDataService {
       chargeDate: 10,
       chargeAmount: 2000,
       marketValue: 125000,
-      status: 2
+      status: "Yearly charge"
     }];
     return mockAccountListData
   }

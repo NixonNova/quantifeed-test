@@ -20,7 +20,7 @@ export class RetirementDataService {
         chargeDate: 1,
         chargeAmount: 25000,
         marketValue: 900000,
-        status: 1
+        status: "Monthly charge"
       }
     };
     return mockRetirementData

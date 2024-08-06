@@ -46,4 +46,10 @@ export class RetirementDetailFormComponent {
 
   }
 
+  getNextChargeDate( chargeDate:number|undefined): Date{
+    const currentDate = new Date();
+    const nextChargeDate = new Date(currentDate.getFullYear(), currentDate.getMonth()+1, chargeDate); // the month is 0-indexed
+    return nextChargeDate;
+  }
+
 }
