@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RetirementDataService } from '../../services/retirement-data/retirement-data.service';
 import { RetirementDto } from '../../interfaces/retirement';
 import { ChangeAccountNumberDialogComponent } from '../change-account-number-dialog/change-account-number-dialog.component';
@@ -17,35 +17,33 @@ import { AccountDto } from '../../interfaces/account';
   providers: [RetirementDataService]
 })
 export class RetirementDetailFormComponent {
-
   readonly dialog = inject(MatDialog);
   faPencil = faPencil;
-  retirementInfo: RetirementDto | undefined;
+  retirementInfo = signal<RetirementDto|null>(null);
 
   constructor(private retirementDataService: RetirementDataService) { }
 
   ngOnInit() {
-    this.retirementInfo = this.retirementDataService.get();
+    this.retirementInfo.set(this.retirementDataService.get());
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ChangeAccountNumberDialogComponent, {
-      data: { account: this.retirementInfo?.account },
+      data: { account: this.retirementInfo()?.account },
       disableClose: true
     });
 
+    // Bind after closed handler
+    // Update state
     dialogRef.afterClosed().subscribe(res => {
-
       const newRetirementInfo: RetirementDto = {
-        userId: this.retirementInfo?.userId!,
-        created: this.retirementInfo?.created!,
+        userId: this.retirementInfo()?.userId!,
+        created: this.retirementInfo()?.created!,
         account: (res.data as AccountDto)
       }
-
-      this.retirementInfo = newRetirementInfo;
+      this.retirementInfo.set(newRetirementInfo);
     })
 
   }
-
 
 }

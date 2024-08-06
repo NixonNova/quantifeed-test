@@ -10,7 +10,4 @@ export class AmountViewerComponent {
   @Input() amount: number | undefined;
   @Input() currency: string | undefined;
 
-  ngOnInit() {
-  }
-
 }

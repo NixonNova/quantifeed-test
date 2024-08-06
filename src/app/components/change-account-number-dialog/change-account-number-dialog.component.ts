@@ -1,4 +1,4 @@
-import { Component, inject, model } from '@angular/core';
+import { Component, inject, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -44,21 +44,21 @@ export interface ChangeAccountNumberDialogComponentData {
 export class ChangeAccountNumberDialogComponent {
   readonly dialogRef = inject(MatDialogRef<ChangeAccountNumberDialogComponent>);
   readonly data = inject<ChangeAccountNumberDialogComponentData>(MAT_DIALOG_DATA);
-  accountInfo: AccountDto[] | undefined;
-  selectedAccount: AccountDto | undefined;
+  accountInfo = signal<AccountDto[] | undefined>(undefined);
+  selectedAccount = signal<AccountDto | undefined>(undefined);
+
+  constructor(private accountDataService: AccountDataService) { }
+
+  ngOnInit() {
+    this.accountInfo.set(this.accountDataService.get());
+    this.selectedAccount.set(this.accountInfo()?.find(({ accountNumber }) => accountNumber === this.data.account.accountNumber));
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
   onDetermineClick(): void {
-    this.dialogRef.close({ data: this.selectedAccount });
-  }
-
-  constructor(private accountDataService: AccountDataService) { }
-
-  ngOnInit() {
-    this.accountInfo = this.accountDataService.get();
-    this.selectedAccount = this.accountInfo?.find(({ accountNumber }) => accountNumber === this.data.account.accountNumber);
+    this.dialogRef.close({ data: this.selectedAccount() });
   }
 
 }

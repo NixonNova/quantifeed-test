@@ -2,33 +2,33 @@
 <form>
   <div class="row">
     <div class="column">
-      Creation Date : <date-viewer [date]="retirementInfo?.created"></date-viewer>
+      Creation Date : <date-viewer [date]="retirementInfo()?.created"></date-viewer>
     </div>
     <div class="column">
-      Investment Amount : <amount-viewer [currency]="retirementInfo?.account?.accountCurrency"
-        [amount]="retirementInfo?.account?.chargeAmount"></amount-viewer>
+      Investment Amount : <amount-viewer [currency]="retirementInfo()?.account?.accountCurrency"
+        [amount]="retirementInfo()?.account?.chargeAmount"></amount-viewer>
       (per month)</div>
   </div>
   <div class="row">
     <div class="column">
-      Account Number : {{retirementInfo?.account?.accountNumber}}
+      Account Number : {{retirementInfo()?.account?.accountNumber}}
       <button mat-raised-button (click)="$event.preventDefault(); openDialog()"><fa-icon
           [icon]="faPencil"></fa-icon></button>
     </div>
     <div class="column">
       Accumulated investment amount :
-      <amount-viewer [currency]="retirementInfo?.account?.accountCurrency"
-        [amount]="retirementInfo?.account?.accountBalance"></amount-viewer>
+      <amount-viewer [currency]="retirementInfo()?.account?.accountCurrency"
+        [amount]="retirementInfo()?.account?.accountBalance"></amount-viewer>
     </div>
   </div>
   <div class="row">
     <div class="column">
-      Charge Date : {{retirementInfo?.account?.chargeDate}} of the month (Next payment date: 2024-09-01)
+      Charge Date : {{retirementInfo()?.account?.chargeDate}} of the month (Next payment date: 2024-09-01)
     </div>
     <div class="column">
       Current market value :
-      <amount-viewer [currency]="retirementInfo?.account?.accountCurrency"
-        [amount]="retirementInfo?.account?.marketValue"></amount-viewer>
+      <amount-viewer [currency]="retirementInfo()?.account?.accountCurrency"
+        [amount]="retirementInfo()?.account?.marketValue"></amount-viewer>
     </div>
   </div>
 </form>

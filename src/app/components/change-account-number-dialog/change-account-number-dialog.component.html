@@ -10,8 +10,8 @@
   <hr />
   <p><strong>New account number:</strong></p>
   <mat-form-field>
-    <mat-select   [(ngModel)]="selectedAccount">
-      @for (account of accountInfo; track account.accountNumber) {
+    <mat-select   [ngModel]="selectedAccount()" (ngModelChange)="selectedAccount.set($event)">
+      @for (account of accountInfo(); track account.accountNumber) {
         <mat-option [value]="account">
           {{account.accountNumber}} ({{account.accountCurrency}})</mat-option>
       }
@@ -19,8 +19,8 @@
   </mat-form-field>
   <p><strong>Balance:</strong></p>
   <p>
-    <amount-viewer [currency]="selectedAccount?.accountCurrency"
-    [amount]="selectedAccount?.accountBalance"></amount-viewer>
+    <amount-viewer [currency]="selectedAccount()?.accountCurrency"
+    [amount]="selectedAccount()?.accountBalance"></amount-viewer>
   </p>
 </mat-dialog-content>
 <mat-dialog-actions>

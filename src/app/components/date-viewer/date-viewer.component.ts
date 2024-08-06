@@ -9,7 +9,4 @@ import { Component, Input } from '@angular/core';
 export class DateViewerComponent {
   @Input() date: Date | undefined;
 
-  ngOnInit() {
-  }
-
 }
