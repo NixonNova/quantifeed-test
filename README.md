@@ -10,7 +10,19 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Dependencies
+1. "@angular/material": "^18.1.3"
+2. "@fortawesome/angular-fontawesome": "^0.15.0",
+
+## Folder Structure
+app
+  * components
+  * interfaces
+  * services
+
+## Main UI Components
+![image](https://github.com/user-attachments/assets/180206a4-e4b2-424b-a2da-d4d01f287f18)
+
 
 ![image](https://github.com/user-attachments/assets/22d12734-9e58-4df2-801f-dacb0fbbab72)
 
