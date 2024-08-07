@@ -26,3 +26,11 @@ app
 ## Viewer Components
 1. amount-viewer
 2. date-viewer
+
+## End result look
+Main page
+![image](https://github.com/user-attachments/assets/1fa7a042-fbcc-4b2b-aeaa-40e156b2f98f)
+
+Change account dialog
+![image](https://github.com/user-attachments/assets/f9e1da40-5e7b-45f1-8b4e-b72b0c85972e)
+
